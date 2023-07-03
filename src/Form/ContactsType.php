@@ -16,9 +16,15 @@ class ContactsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class)
-            ->add('email', EmailType::class)
-            ->add('message', TextareaType::class)
+            ->add('name', TextType::class, [
+                'label' => false,
+            ])
+            ->add('email', EmailType::class, [
+                'label' => false,
+            ])
+            ->add('message', TextareaType::class, [
+                'label' => false,
+            ])
             ->add('save', ButtonType::class, [
                 'attr' => ['class' => 'btn btn-success w-full'],
                 'label' => 'Küldés'
