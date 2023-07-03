@@ -35,12 +35,17 @@
 
 			<div class="mb-3">
 				{{ form_label(contactForm.email, 'Email címed')}}
-				{{ form_row(contactForm.email, {
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="contacts_email">@</span>
+					</div>
+					{{ form_row(contactForm.email, {
 					'attr': {
 						'class': 'form-control',
 						'label': false,
 					}
 			}) }}
+				</div>
 			</div>
 
 			<div class="mb-3">
