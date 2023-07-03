@@ -1,11 +1,8 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Contacts!
+{% block title %}Kapcsolat
 {% endblock %}
 
-
 {% block body %}
-
 	<style>
 		{
 			# helper classes #
@@ -17,35 +14,29 @@
 			width: calc(100vw - 50%);
 		}
 	</style>
-
 	<div class="d-flex justify-content-center w-full mt-3">
-		<form class="mw-75 border p-2" action="{{ path('contacts') }}" methods="POST" name="contact_form">
+		<div class="mw-75 border p-2">
 			<h3 class="text-center">Kapcsolat</h3>
+			{{ form_start(contactForm) }}
+
 			<div class="mb-3">
-				<label for="name" class="form-label">Neved</label>
-				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Gipsz Jakab" id="name">
-				</div>
+				{{ form_row(contactForm.name) }}
 			</div>
 
 			<div class="mb-3">
-				<label for="name" class="form-label">Email címed</label>
-				<div class="input-group">
-					<div class="input-group-prepend">
-						<span class="input-group-text" id="email_address">@</span>
-					</div>
-					<input type="email" class="form-control" placeholder="gipsz@jakab.com" id="email_address">
-				</div>
+				{{ form_row(contactForm.email) }}
 			</div>
 
 			<div class="mb-3">
-				<label for="message" class="form-label">Üzenet szövege</label>
-				<textarea class="form-control" id="message" rows="3"></textarea>
+				{{ form_row(contactForm.message, { 'attr': {
+					'rows': '3'
+				}}) }}
 			</div>
 
 			<div class="mb-3">
-				<button type="submit" class="btn btn-success w-full">Küldés</button>
+				{{ form_row(contactForm.save) }}
 			</div>
-		</form>
+			{{ form_end(contactForm) }}
+		</div>
 	</div>
-{% endblock %}
+</div>{% endblock %}
