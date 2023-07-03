@@ -4,8 +4,8 @@ namespace App\Form;
 
 use App\Entity\Contacts;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -25,9 +25,9 @@ class ContactsType extends AbstractType
             ->add('message', TextareaType::class, [
                 'label' => false,
             ])
-            ->add('save', ButtonType::class, [
+            ->add('save', SubmitType::class, [
                 'attr' => ['class' => 'btn btn-success w-full'],
-                'label' => 'Küldés'
+                'label' => 'Küldés',
             ]);
     }
 
