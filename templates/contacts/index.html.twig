@@ -16,14 +16,16 @@
 	</style>
 	<div class="d-flex justify-content-center w-full mt-3">
 		<div class="border-2 p-2">
-			<h3 class="text-center">Kapcsolat</h3>
 			{{ form_start(contactForm, {
 					'attr': {
 						'class': 'form-control',
 					}
 			}) }}
 
+			<h3 class="text-center">Kapcsolat</h3>
+
 			<div class="mb-3">
+				{{ form_label(contactForm.name, 'Neved')}}
 				{{ form_row(contactForm.name, {
 					'attr': {
 						'class': 'form-control',
@@ -32,14 +34,17 @@
 			</div>
 
 			<div class="mb-3">
+				{{ form_label(contactForm.email, 'Email címed')}}
 				{{ form_row(contactForm.email, {
 					'attr': {
 						'class': 'form-control',
+						'label': false,
 					}
 			}) }}
 			</div>
 
 			<div class="mb-3">
+				{{ form_label(contactForm.message, 'Üzenet szövege')}}
 				{{ form_row(contactForm.message, { 
 					'attr': {
 						'class': 'form-control',
