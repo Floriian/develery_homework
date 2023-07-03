@@ -16,6 +16,7 @@
 	</style>
 	<div class="d-flex justify-content-center w-full mt-3">
 		<div class="border-2 p-2">
+
 			{{ form_start(contactForm, {
 					'attr': {
 						'class': 'form-control',
@@ -35,6 +36,7 @@
 
 			<div class="mb-3">
 				{{ form_label(contactForm.email, 'Email címed')}}
+
 				<div class="input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="contacts_email">@</span>
@@ -49,7 +51,9 @@
 			</div>
 
 			<div class="mb-3">
+
 				{{ form_label(contactForm.message, 'Üzenet szövege')}}
+
 				{{ form_row(contactForm.message, { 
 					'attr': {
 						'class': 'form-control',
