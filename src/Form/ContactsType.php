@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Contacts;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -15,14 +16,12 @@ class ContactsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, [
-                'attr' => ['class' => 'input-group']
-            ])
-            ->add('email', EmailType::class, [
-                'attr' => ['class' => 'input-group']
-            ])
-            ->add('message', TextareaType::class, [
-                'attr' => ['class' => 'input-group']
+            ->add('name', TextType::class)
+            ->add('email', EmailType::class)
+            ->add('message', TextareaType::class)
+            ->add('save', ButtonType::class, [
+                'attr' => ['class' => 'btn btn-success w-full'],
+                'label' => 'Küldés'
             ]);
     }
 
