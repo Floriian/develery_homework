@@ -14,8 +14,6 @@
 
 			<h3 class="text-center">Kapcsolat</h3>
 
-			{# {{ form_errors(contactForm.message) }} #}
-
 			{% for message in app.flashes('success') %}
 				{% if message == true %}
 					<div class="alert alert-success">Köszönjük szépen a kérdésedet. Válaszunkkal hamarosan keresünk a megadott e-mail címen.</div>
