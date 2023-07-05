@@ -18,15 +18,18 @@ class ContactsType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'label' => false,
+                'required' => true,
             ])
             ->add('email', EmailType::class, [
                 'label' => false,
+                'required' => true,
             ])
             ->add('message', TextareaType::class, [
                 'label' => false,
+                'required' => true,
             ])
             ->add('save', SubmitType::class, [
-                'attr' => ['class' => 'btn btn-success w-full'],
+                'attr' => ['class' => 'btn btn-success w-100'],
                 'label' => 'Küldés',
             ]);
     }
