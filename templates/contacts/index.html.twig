@@ -25,23 +25,23 @@
 
 
 			<div class="mb-3">
-				{{ form_label(contactForm.name, 'Neved')}}
-				{{ form_widget(contactForm.name, { 'attr': {'class': 'form-control '}})}}
+				{{ form_label(contactForm.name, 'Neved') }}
+				{{ form_widget(contactForm.name, { 'attr': {'class': 'form-control '}}) }}
 			</div>
 
 			<div class="mb-3">
 				{{ form_label(contactForm.email, 'Email címed')}}
 				<div class="input-group">
 					<span class="input-group-text">@</span>
-					{{ form_widget(contactForm.email, { 'attr': {'class': 'form-control '}})}}
+					{{ form_widget(contactForm.email, { 'attr': {'class': 'form-control '}}) }}
 				</div>
 			</div>
 
 			<div class="mb-3">
 
-				{{ form_label(contactForm.message, 'Üzenet szövege')}}
+				{{ form_label(contactForm.message, 'Üzenet szövege') }}
 
-				{{ form_widget(contactForm.message, { 'attr': {'class': 'form-control', 'rows': '3' }})}}
+				{{ form_widget(contactForm.message, { 'attr': {'class': 'form-control', 'rows': '3' }}) }}
 			</div>
 
 			<div class="mb-3">
