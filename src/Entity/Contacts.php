@@ -9,6 +9,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: ContactsRepository::class)]
 class Contacts
 {
+
+    function __construct()
+    {
+        $this->setCreatedAt(new \DateTimeImmutable());
+    }
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -30,7 +36,7 @@ class Contacts
     #[Assert\Length(max: 255)]
     private ?string $message = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $createdAt = null;
 
     public function getId(): ?int
@@ -79,7 +85,7 @@ class Contacts
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): static
+    public function setCreatedAt(?\DateTimeImmutable $createdAt): static
     {
         $this->createdAt = $createdAt;
 
