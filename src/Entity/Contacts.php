@@ -15,15 +15,19 @@ class Contacts
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
-    #[Assert\NotBlank()]
+    #[Assert\NotNull()]
+    #[Assert\Length(max: 50)]
     private ?string $name = null;
 
     #[ORM\Column(length: 50)]
-    #[Assert\NotBlank()]
+    #[Assert\NotNull()]
+    #[Assert\Email()]
+    #[Assert\Length(max: 50)]
     private ?string $email = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank()]
+    #[Assert\NotNull()]
+    #[Assert\Length(max: 255)]
     private ?string $message = null;
 
     public function getId(): ?int
