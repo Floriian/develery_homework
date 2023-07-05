@@ -3,50 +3,39 @@
 {% endblock %}
 
 {% block body %}
-	<style>
-		{
-			# helper classes #
-		}
-		.w-full {
-			width: 100%;
-		}
-		.w-50 {
-			width: calc(100vw - 50%);
-		}
-	</style>
-	<div class="d-flex justify-content-center w-full mt-3">
-		<div class="border-2 p-2">
-
+	<style></style>
+	<div class="d-flex justify-content-center mw-100 mt-3">
+		<div class="p-2 mw-50 w-50">
 			{{ form_start(contactForm, {
 					'attr': {
 						'class': 'form-control',
-					}
+					},
 			}) }}
 
 			<h3 class="text-center">Kapcsolat</h3>
 
+			{# {{ form_errors(contactForm.message) }} #}
+
+			{% for message in app.flashes('success') %}
+				{% if message == true %}
+					<div class="alert alert-success">Köszönjük szépen a kérdésedet. Válaszunkkal hamarosan keresünk a megadott e-mail címen.</div>
+				{% elseif message == false %}
+					<div class="alert alert-danger">Hiba! Kérjük töltsd ki az összes mezőt!</div>
+				{% endif %}
+
+			{% endfor %}
+
+
 			<div class="mb-3">
 				{{ form_label(contactForm.name, 'Neved')}}
-				{{ form_row(contactForm.name, {
-					'attr': {
-						'class': 'form-control',
-					}
-			}) }}
+				{{ form_widget(contactForm.name, { 'attr': {'class': 'form-control '}})}}
 			</div>
 
 			<div class="mb-3">
 				{{ form_label(contactForm.email, 'Email címed')}}
-
 				<div class="input-group">
-					<div class="input-group-prepend">
-						<span class="input-group-text" id="contacts_email">@</span>
-					</div>
-					{{ form_row(contactForm.email, {
-					'attr': {
-						'class': 'form-control',
-						'label': false,
-					}
-			}) }}
+					<span class="input-group-text">@</span>
+					{{ form_widget(contactForm.email, { 'attr': {'class': 'form-control '}})}}
 				</div>
 			</div>
 
@@ -54,19 +43,12 @@
 
 				{{ form_label(contactForm.message, 'Üzenet szövege')}}
 
-				{{ form_row(contactForm.message, { 
-					'attr': {
-						'class': 'form-control',
-						'rows': '3'
-					}
-			}) }}
+				{{ form_widget(contactForm.message, { 'attr': {'class': 'form-control', 'rows': '3' }})}}
 			</div>
 
 			<div class="mb-3">
 				{{ form_row(contactForm.save) }}
 			</div>
-
-			{{ form_rest(contactForm) }}
 
 			{{ form_end(contactForm) }}
 		</div>
